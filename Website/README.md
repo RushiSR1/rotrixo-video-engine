@@ -56,7 +56,7 @@ Edit [`assets/js/config.js`](file:///assets/js/config.js) to update links across
 
 | Key | Current Value | Action Required |
 | :--- | :--- | :--- |
-| `STREAMLIT_DEMO_URL` | `'https://YOUR-STREAMLIT-APP-URL.streamlit.app'` | Replace with your actual live Streamlit demo URL. |
+| `STREAMLIT_DEMO_URL` | `'https://rotrixo-video-engine-xjgwr2mdyyvcroahgmmcoi.streamlit.app/'` | Replace with your actual live Streamlit demo URL. |
 | `UPWORK_URL` | `'https://www.upwork.com/YOUR-PROFILE-OR-CONTRACT-LINK'` | Replace with your Upwork Profile or Direct Contract link. |
 | `EMAIL` | `'hello@rotrixo.com'` | Replace with your preferred contact email if different. |
 | `SITE_URL` | `'https://rotrixo.com'` | Canonical domain name. |
