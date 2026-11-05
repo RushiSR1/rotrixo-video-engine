@@ -1,0 +1,17 @@
+# Credentials and environment
+.env
+.env.local
+
+# Build & temporary files
+temp/
+output/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS & Editor
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+qa_screenshots/

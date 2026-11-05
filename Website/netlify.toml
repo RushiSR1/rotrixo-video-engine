@@ -1,0 +1,101 @@
+# ==============================================================================
+# Netlify Configuration for Rotrixo (https://rotrixo.com)
+# Pure Static Multi-Page Site with Clean URLs, Security Headers, and 404 Handling
+# ==============================================================================
+
+[build]
+  publish = "."
+
+# ------------------------------------------------------------------------------
+# REDIRECTS & CLEAN URL REWRITES
+# ------------------------------------------------------------------------------
+
+# 1. Canonical Domain Redirection: www -> non-www (HTTPS)
+[[redirects]]
+  from = "https://www.rotrixo.com/*"
+  to = "https://rotrixo.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.rotrixo.com/*"
+  to = "https://rotrixo.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://rotrixo.com/*"
+  to = "https://rotrixo.com/:splat"
+  status = 301
+  force = true
+
+# 2. Clean URLs (Serve .html without showing file extension in address bar)
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/pricing"
+  to = "/pricing.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
+
+# 3. Custom 404 Page (Must be last rewrite rule)
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# ------------------------------------------------------------------------------
+# HTTP SECURITY & CACHE HEADERS
+# ------------------------------------------------------------------------------
+
+# Global Security Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none';"
+
+# Static Assets Long-term Immutable Caching
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Favicons and App Manifest Caching
+[[headers]]
+  for = "/favicon*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/site.webmanifest"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# HTML Files: Always revalidate to ensure instantaneous deployment updates
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+

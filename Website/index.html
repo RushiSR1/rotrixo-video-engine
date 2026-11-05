@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#05060A">
+  
+  <title>Rotrixo | Autonomous AI Video Engines For Content Agencies</title>
+  <meta name="description" content="Deploy 1-click autonomous AI video engines for your content agency. Custom Python, Gemini, and ElevenLabs workflows that benchmark viral hooks and generate high-retention shorts in under 60 seconds.">
+  <link rel="canonical" href="https://rotrixo.com/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rotrixo.com/">
+  <meta property="og:site_name" content="Rotrixo">
+  <meta property="og:title" content="Rotrixo | Autonomous AI Video Engines For Content Agencies">
+  <meta property="og:description" content="Deploy 1-click autonomous AI video engines for your content agency. Custom Python, Gemini, and ElevenLabs workflows generating shorts in under 60 seconds.">
+  <meta property="og:image" content="https://rotrixo.com/assets/img/og-image.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rotrixo | Autonomous AI Video Engines For Content Agencies">
+  <meta name="twitter:description" content="Deploy 1-click autonomous AI video engines for your content agency. Benchmark viral hooks & render shorts in <60s.">
+  <meta name="twitter:image" content="https://rotrixo.com/assets/img/og-image.png">
+
+  <!-- Favicons & Manifest -->
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Fonts & Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#05060A',
+              card: '#0D111C',
+              purple: '#8B5CF6',
+              purpleLight: '#A855F7',
+              emerald: '#10F5A0',
+              emeraldSoft: '#34D399'
+            }
+          },
+          fontFamily: {
+            heading: ['Space Grotesk', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/assets/css/theme.css">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://rotrixo.com/#organization",
+        "name": "Rotrixo",
+        "url": "https://rotrixo.com",
+        "logo": "https://rotrixo.com/assets/img/logo-icon-512.png",
+        "email": "hello@rotrixo.com",
+        "description": "Autonomous AI video automation engines for content agencies.",
+        "founder": {
+          "@type": "Person",
+          "name": "Rushikesh Rautrao",
+          "jobTitle": "Founder & AI Automation Engineer",
+          "url": "https://rotrixo.com/about"
+        },
+        "sameAs": [
+          "https://twitter.com/rotrixo",
+          "https://linkedin.com/in/rushikesh-rautrao",
+          "https://github.com/rotrixo"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://rotrixo.com/#website",
+        "url": "https://rotrixo.com",
+        "name": "Rotrixo",
+        "alternateName": ["Rotrixo AI", "rotrixo.com"],
+        "publisher": {
+          "@id": "https://rotrixo.com/#organization"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-[#05060A] text-slate-200 antialiased selection:bg-purple-600 selection:text-white relative cyber-grid-bg min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+
+  <header id="main-navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#05060A]/80 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="/" class="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-purple-500 rounded-lg p-1 group">
+          <img src="/assets/img/logo.svg" alt="Rotrixo Logo" class="h-10 w-auto transition-transform duration-200 group-hover:scale-[1.02]" width="175" height="40">
+        </a>
+        <nav class="hidden md:flex items-center gap-1 lg:gap-2" aria-label="Main Navigation">
+          <a href="/" class="nav-link active">Home</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/pricing" class="nav-link">Pricing</a>
+          <a href="/contact" class="nav-link">Contact</a>
+        </nav>
+        <div class="hidden md:flex items-center gap-4">
+          <a href="/pricing" class="glow-btn-primary text-sm py-2.5 px-5 shadow-lg group">
+            <span>Get Custom Setup</span>
+            <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+        <div class="flex md:hidden items-center">
+          <button id="mobile-menu-toggle" type="button" class="inline-flex items-center justify-center p-3 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation menu">
+            <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-b border-white/10 bg-[#070912]/95 backdrop-blur-2xl">
+      <div class="px-4 pt-3 pb-6 space-y-2">
+        <a href="/" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-white bg-white/5">Home</a>
+        <a href="/about" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5">About</a>
+        <a href="/pricing" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5">Pricing</a>
+        <a href="/contact" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5">Contact</a>
+        <div class="pt-4 px-2">
+          <a href="/pricing" class="glow-btn-primary w-full text-center py-3 text-base justify-center">Get Custom Setup ($199)</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content" class="flex-grow pt-28 sm:pt-36">
+
+    <!-- Ambient Floating Glows -->
+    <div class="ambient-glow-purple top-16 left-0 -translate-x-1/2 animate-float-slow"></div>
+    <div class="ambient-glow-emerald top-96 right-0 translate-x-1/3 animate-float-slow" style="animation-delay: -5s;"></div>
+
+    <!-- 1. HERO SECTION -->
+    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-4 sm:pt-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Column: Copy & Actions -->
+        <div class="lg:col-span-7 space-y-8 reveal">
+          
+          <!-- Beta Badge -->
+          <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-purple-500/30 bg-purple-950/30 backdrop-blur-md">
+            <span class="flex h-2.5 w-2.5 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+            </span>
+            <span class="text-xs sm:text-sm font-medium text-purple-200">
+              Now onboarding 2 agency partners for case study
+            </span>
+          </div>
+
+          <!-- Main H1 Headline -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
+            Deploy 1-Click <br class="hidden sm:inline" />
+            <span class="text-gradient-purple-emerald">Autonomous AI Video Engines</span> <br />
+            For Your Content Agency
+          </h1>
+
+          <!-- Sub-headline -->
+          <p class="text-lg sm:text-xl text-slate-300 max-w-2xl leading-relaxed font-normal">
+            We build custom Python, Gemini, and ElevenLabs powered workflows that benchmark viral hooks and generate high-retention shorts in under 60 seconds.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+            <a href="https://YOUR-STREAMLIT-APP-URL.streamlit.app" target="_blank" rel="noopener noreferrer" data-config-link="STREAMLIT_DEMO_URL" class="glow-btn-primary text-base px-8 py-4 shadow-xl">
+              <span>View Live Demo</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+            <a href="/pricing" class="glow-btn-secondary text-base px-8 py-4">
+              <span>Get Custom Setup</span>
+              <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Trust Chip: "Built by Rushikesh" -->
+          <div class="pt-4 flex items-center gap-4">
+            <div class="relative p-0.5 rounded-full bg-gradient-to-tr from-purple-500 to-emerald-400 shadow-md">
+              <img src="/assets/img/profile-400.jpg" alt="Rushikesh Rautrao - AI Automation Engineer" class="w-12 h-12 rounded-full object-cover" width="48" height="48" onerror="this.src='/Website/my%20image%202003.jpeg'">
+              <span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-[#05060A]"></span>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-white flex items-center gap-1.5">
+                <span>Architected by Rushikesh Rautrao</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">Lead Engineer</span>
+              </div>
+              <p class="text-xs text-slate-400">100% Client-Owned Python &amp; Streamlit Infrastructure • Zero SaaS Lock-in</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Interactive Workflow Terminal Mockup -->
+        <div class="lg:col-span-5 reveal delay-200">
+          <div id="workflow-terminal" class="glass-card border border-white/10 shadow-2xl overflow-hidden rounded-2xl relative">
+            
+            <!-- Window Topbar -->
+            <div class="px-4 py-3 bg-[#0A0E18] border-b border-white/10 flex items-center justify-between text-xs font-mono">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+                <span class="text-slate-400 font-medium ml-2">rotrixo-engine-v2.1.py</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="pulse-beacon"></span>
+                <span id="terminal-timer" class="text-emerald-400 font-bold">00:58s</span>
+              </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="w-full bg-white/5 h-1">
+              <div id="terminal-progress" class="bg-gradient-to-r from-purple-500 to-emerald-400 h-1 transition-all duration-700 ease-out" style="width: 20%;"></div>
+            </div>
+
+            <!-- Pipeline Steps List -->
+            <div class="p-5 space-y-3 font-mono text-xs">
+              
+              <!-- Step 1 -->
+              <div data-workflow-step="1" class="flex items-center justify-between p-2.5 rounded-lg border border-white/5 bg-white/[0.02] transition-colors">
+                <div class="flex items-center gap-2.5">
+                  <span class="step-check-icon text-slate-500">▶</span>
+                  <span class="text-slate-200 font-sans font-medium text-sm">1. Viral Hook Benchmark</span>
+                </div>
+                <span class="step-status-badge px-2 py-0.5 rounded text-xs font-mono text-slate-400 bg-white/5">QUEUED</span>
+              </div>
+
+              <!-- Step 2 -->
+              <div data-workflow-step="2" class="flex items-center justify-between p-2.5 rounded-lg border border-white/5 bg-white/[0.02] transition-colors">
+                <div class="flex items-center gap-2.5">
+                  <span class="step-check-icon text-slate-500">▶</span>
+                  <span class="text-slate-200 font-sans font-medium text-sm">2. Gemini Script Synthesizer</span>
+                </div>
+                <span class="step-status-badge px-2 py-0.5 rounded text-xs font-mono text-slate-400 bg-white/5">QUEUED</span>
+              </div>
+
+              <!-- Step 3 -->
+              <div data-workflow-step="3" class="flex items-center justify-between p-2.5 rounded-lg border border-white/5 bg-white/[0.02] transition-colors">
+                <div class="flex items-center gap-2.5">
+                  <span class="step-check-icon text-slate-500">▶</span>
+                  <span class="text-slate-200 font-sans font-medium text-sm">3. ElevenLabs Neural Voice</span>
+                </div>
+                <span class="step-status-badge px-2 py-0.5 rounded text-xs font-mono text-slate-400 bg-white/5">QUEUED</span>
+              </div>
+
+              <!-- Step 4 -->
+              <div data-workflow-step="4" class="flex items-center justify-between p-2.5 rounded-lg border border-white/5 bg-white/[0.02] transition-colors">
+                <div class="flex items-center gap-2.5">
+                  <span class="step-check-icon text-slate-500">▶</span>
+                  <span class="text-slate-200 font-sans font-medium text-sm">4. Pixabay Vertical B-Roll</span>
+                </div>
+                <span class="step-status-badge px-2 py-0.5 rounded text-xs font-mono text-slate-400 bg-white/5">QUEUED</span>
+              </div>
+
+              <!-- Step 5 -->
+              <div data-workflow-step="5" class="flex items-center justify-between p-2.5 rounded-lg border border-white/5 bg-white/[0.02] transition-colors">
+                <div class="flex items-center gap-2.5">
+                  <span class="step-check-icon text-slate-500">▶</span>
+                  <span class="text-slate-200 font-sans font-medium text-sm">5. FFmpeg 1080x1920 Render</span>
+                </div>
+                <span class="step-status-badge px-2 py-0.5 rounded text-xs font-mono text-slate-400 bg-white/5">QUEUED</span>
+              </div>
+
+            </div>
+
+            <!-- Terminal Live Logs Output -->
+            <div class="px-5 pb-5 pt-1">
+              <div class="p-3 rounded-lg bg-black/60 border border-white/10 text-xs font-mono text-emerald-400 min-h-[58px] flex items-center">
+                <span class="mr-2 text-purple-400 font-bold">$</span>
+                <span id="terminal-live-log" class="typing-text">Initializing autonomous rendering engine...</span>
+              </div>
+            </div>
+
+            <!-- Mini Spec Banner -->
+            <div class="px-5 py-3 bg-purple-950/20 border-t border-white/5 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Streamlit Web UI
+              </span>
+              <span class="text-purple-300 font-mono">1-Click Local Execution</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. TECH TRUST STRIP -->
+    <section class="border-y border-white/5 bg-[#060810]/70 py-8 relative z-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-center text-xs uppercase tracking-widest text-slate-400 font-mono mb-6">Engineered with Production-Grade Stacks</p>
+        <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-12 text-slate-300 text-sm font-semibold">
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5">
+            <span class="text-yellow-400">🐍</span> Python 3.11+
+          </div>
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5">
+            <span class="text-blue-400">✨</span> Google Gemini API
+          </div>
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5">
+            <span class="text-purple-400">🎙️</span> ElevenLabs Voice AI
+          </div>
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5">
+            <span class="text-emerald-400">🕷️</span> Apify Data Scraping
+          </div>
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5">
+            <span class="text-teal-400">🎞️</span> Pixabay Video Engine
+          </div>
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5">
+            <span class="text-red-400">👑</span> Streamlit UI
+          </div>
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5">
+            <span class="text-green-400">⚡</span> FFmpeg 1080x1920
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FEATURES GRID (6 CARDS) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono uppercase tracking-wider mb-4">
+          Core Capabilities
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+          Engineered to Replace 20 Hours of Manual Editing With 1 Click
+        </h2>
+        <p class="mt-4 text-slate-400 text-base sm:text-lg">
+          Every component in your pipeline is built modularly in clean Python. No brittle no-code tools that break on API changes.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Card 1 -->
+        <div class="glass-card p-8 reveal">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">1. Viral Benchmarking</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">
+            Scrapes top-performing niche shorts via Apify to dissect 3-second hook retention, emotional resonance, and viral pacing formulas.
+          </p>
+          <div class="text-xs text-emerald-400 font-mono font-medium flex items-center gap-1">
+            <span>Benefit:</span> Data-backed scripts that stop the thumb scroll.
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-card p-8 reveal delay-100">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">2. AI Script Synthesizer</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">
+            Uses Google Gemini 2.0 Flash to craft punchy 40-55s scripts with micro-hooks every 5 seconds and an irresistible loop ending.
+          </p>
+          <div class="text-xs text-emerald-400 font-mono font-medium flex items-center gap-1">
+            <span>Benefit:</span> Endless script variations formatted specifically for 9:16 vertical video.
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-card p-8 reveal delay-200">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">3. Pro Voiceovers</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">
+            Synthesizes studio-grade neural narration using ElevenLabs with natural pacing, breathing, and zero robotic monotone cadence.
+          </p>
+          <div class="text-xs text-emerald-400 font-mono font-medium flex items-center gap-1">
+            <span>Benefit:</span> Sounds like a real $1,000/mo voice actor without waiting for delivery.
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="glass-card p-8 reveal">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">4. Stock Footage Sync</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">
+            Connects to Pixabay's high-definition API, querying semantic visual keywords and trimming vertical 1080x1920 clips to speech syllable markers.
+          </p>
+          <div class="text-xs text-emerald-400 font-mono font-medium flex items-center gap-1">
+            <span>Benefit:</span> Dynamic visual shifts every 2.5 seconds to maximize average watch time.
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="glass-card p-8 reveal delay-100">
+          <div class="w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-400 mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">5. Automated Asset Management</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">
+            Outputs date-stamped project folders with raw audio, B-roll clips, metadata JSON, and finalized MP4s organized on your machine.
+          </p>
+          <div class="text-xs text-emerald-400 font-mono font-medium flex items-center gap-1">
+            <span>Benefit:</span> Zero lost files or desktop clutter; enterprise folder hygiene built-in.
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="glass-card p-8 reveal delay-200">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" /></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">6. Auto Titles, SEO &amp; Tags</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">
+            Generates 3 high-CTR title variations, full YouTube Shorts descriptions, and algorithmically targeted hashtags for immediate distribution.
+          </p>
+          <div class="text-xs text-emerald-400 font-mono font-medium flex items-center gap-1">
+            <span>Benefit:</span> Drag-and-drop into YouTube Studio, TikTok, or Instagram in 10 seconds.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. HOW IT WORKS TIMELINE -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 border-t border-white/5">
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+          How The Engine Operates
+        </h2>
+        <p class="mt-4 text-slate-400 text-base sm:text-lg">
+          From viral topic input to ready-to-post 1080x1920 MP4 in 4 orchestrated stages.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+        
+        <!-- Step 1 -->
+        <div class="glass-card p-6 reveal relative">
+          <div class="text-3xl font-extrabold font-mono text-purple-400 mb-3">01</div>
+          <h3 class="text-lg font-bold text-white mb-2">Input Topic or URL</h3>
+          <p class="text-sm text-slate-400">
+            Type a topic or paste a reference video link inside your private Streamlit web app dashboard.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="glass-card p-6 reveal delay-100 relative">
+          <div class="text-3xl font-extrabold font-mono text-purple-400 mb-3">02</div>
+          <h3 class="text-lg font-bold text-white mb-2">Gemini Synthesizes</h3>
+          <p class="text-sm text-slate-400">
+            AI crafts high-tension script hooks, audio prompts, and queries Pixabay for high-res vertical footage.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="glass-card p-6 reveal delay-200 relative">
+          <div class="text-3xl font-extrabold font-mono text-emerald-400 mb-3">03</div>
+          <h3 class="text-lg font-bold text-white mb-2">Audio &amp; Subtitle Sync</h3>
+          <p class="text-sm text-slate-400">
+            ElevenLabs generates ultra-crisp audio, while the caption engine overlays animated word-by-word text.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="glass-card p-6 reveal delay-300 relative">
+          <div class="text-3xl font-extrabold font-mono text-emerald-400 mb-3">04</div>
+          <h3 class="text-lg font-bold text-white mb-2">1080x1920 Render</h3>
+          <p class="text-sm text-slate-400">
+            FFmpeg outputs an optimized MP4 in under 60 seconds with metadata ready for multi-platform publishing.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. BETA PROGRAM BANNER -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+      <div class="conic-glow-border shadow-2xl reveal">
+        <div class="conic-content p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div class="space-y-4 max-w-2xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-medium">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Agency Beta Launch</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white">
+              Only 2 Agency Partners Onboarding This Week
+            </h2>
+            <p class="text-slate-300 text-base leading-relaxed">
+              We are offering a complete private deployment of our autonomous video engine for an exclusive one-time fee of <strong class="text-white">$199</strong> in exchange for a short case study testimonial upon successful deployment.
+            </p>
+            <div class="flex items-center gap-6 pt-2 text-sm text-slate-400 font-mono">
+              <span class="flex items-center gap-2">
+                <span class="text-emerald-400">✓</span> Upwork Escrow Protected
+              </span>
+              <span class="flex items-center gap-2">
+                <span class="text-emerald-400">✓</span> 100% Code Ownership
+              </span>
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row items-center gap-4 flex-shrink-0 w-full sm:w-auto">
+            <div class="px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-center w-full sm:w-auto">
+              <div class="text-xs uppercase text-slate-400 font-mono">Spots Remaining</div>
+              <div data-beta-spots class="text-2xl font-bold text-emerald-400 font-mono mt-0.5">2 / 2</div>
+            </div>
+            <a href="/pricing" class="glow-btn-primary px-8 py-4 text-base w-full sm:w-auto text-center justify-center">
+              Claim Beta Setup ($199)
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FAQ ACCORDION -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+      <div class="text-center mb-14 reveal">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Frequently Asked Questions</h2>
+        <p class="mt-3 text-slate-400 text-base">Direct technical and commercial transparency for agency operators.</p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <div class="glass-card overflow-hidden reveal">
+          <button type="button" class="faq-toggle-btn w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none" aria-controls="faq-ans-1" aria-expanded="false">
+            <span class="text-lg font-bold text-white">How does the pricing work? Are there recurring SaaS fees?</span>
+            <svg class="faq-icon w-5 h-5 text-purple-400 transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </button>
+          <div id="faq-ans-1" class="hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+            Zero recurring platform fees to Rotrixo. You pay a one-time setup fee ($199 for beta partners) for the entire Python engine codebase and custom Streamlit deployment. You own the code forever and run it locally or on your private cloud.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="glass-card overflow-hidden reveal delay-100">
+          <button type="button" class="faq-toggle-btn w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none" aria-controls="faq-ans-2" aria-expanded="false">
+            <span class="text-lg font-bold text-white">Do I get full ownership of the source code?</span>
+            <svg class="faq-icon w-5 h-5 text-purple-400 transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </button>
+          <div id="faq-ans-2" class="hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+            Yes. 100% intellectual property ownership. The repository is transferred directly to your private GitHub organization with complete documentation, modular scripts, and full commercial usage rights.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="glass-card overflow-hidden reveal delay-200">
+          <button type="button" class="faq-toggle-btn w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none" aria-controls="faq-ans-3" aria-expanded="false">
+            <span class="text-lg font-bold text-white">What API keys are required and how much do they cost?</span>
+            <svg class="faq-icon w-5 h-5 text-purple-400 transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </button>
+          <div id="faq-ans-3" class="hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+            The engine connects to Google Gemini API (has a generous free tier), Pixabay Video API (100% free with unlimited requests), and ElevenLabs (for premium voiceovers, ~\$1 to \$5 for dozens of videos). We configure your keys in a secure <code class="text-emerald-400 bg-white/5 px-1 py-0.5 rounded">.env</code> file so no third party ever touches your credentials.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="glass-card overflow-hidden reveal">
+          <button type="button" class="faq-toggle-btn w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none" aria-controls="faq-ans-4" aria-expanded="false">
+            <span class="text-lg font-bold text-white">How long does custom deployment take?</span>
+            <svg class="faq-icon w-5 h-5 text-purple-400 transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </button>
+          <div id="faq-ans-4" class="hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+            Standard delivery is completed within 24 to 48 hours from escrow authorization on Upwork. Rushikesh will personally configure your Streamlit web interface and perform a live verification test render.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="glass-card overflow-hidden reveal delay-100">
+          <button type="button" class="faq-toggle-btn w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none" aria-controls="faq-ans-5" aria-expanded="false">
+            <span class="text-lg font-bold text-white">What warranty and post-deployment support do you offer?</span>
+            <svg class="faq-icon w-5 h-5 text-purple-400 transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </button>
+          <div id="faq-ans-5" class="hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+            Every setup includes a 30-day bug-fix guarantee, a 1-on-1 private deployment walkthrough session, and asynchronous priority email support directly with Rushikesh.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. FINAL CTA SECTION -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 text-center">
+      <div class="glass-card p-10 sm:p-16 border border-purple-500/30 shadow-2xl relative overflow-hidden reveal">
+        <div class="ambient-glow-purple -top-32 left-1/2 -translate-x-1/2"></div>
+        <div class="relative z-10 max-w-3xl mx-auto space-y-6">
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white">
+            Scale Your Agency's Short-Form Video Output Exponentially
+          </h2>
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+            Stop losing margin to freelance video editors and clumsy manual workflows. Deploy your dedicated Python video engine this week.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+            <a href="/pricing" class="glow-btn-primary px-8 py-4 text-base w-full sm:w-auto">
+              Secure Setup via Upwork Escrow ($199)
+            </a>
+            <a href="https://YOUR-STREAMLIT-APP-URL.streamlit.app" target="_blank" rel="noopener noreferrer" data-config-link="STREAMLIT_DEMO_URL" class="glow-btn-secondary px-8 py-4 text-base w-full sm:w-auto">
+              Test Live Streamlit Demo
+            </a>
+          </div>
+          <p class="text-xs text-slate-400 font-mono pt-2">Protected by Upwork Direct Contract Escrow • 100% Client-Owned</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 bg-[#05060A] text-slate-400 mt-auto relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-12">
+        <div class="lg:col-span-2 space-y-4">
+          <a href="/" class="inline-block focus:outline-none focus:ring-2 focus:ring-purple-500 rounded-lg p-1">
+            <img src="/assets/img/logo.svg" alt="Rotrixo Logo" class="h-9 w-auto" width="160" height="36">
+          </a>
+          <p class="text-sm text-slate-400 max-w-sm leading-relaxed">
+            Autonomous 1-click AI video engines engineered in Python, Google Gemini, and ElevenLabs. Benchmarking viral hooks and generating client-owned high-retention vertical videos in under 60 seconds.
+          </p>
+          <div class="flex items-center gap-2 text-xs text-emerald-400 pt-2 font-mono">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Zero recurring platform fees • 100% Client-Owned</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 font-mono">Engine</h3>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="/" class="hover:text-emerald-400 transition-colors">Home Command Center</a></li>
+            <li><a href="/pricing" class="hover:text-emerald-400 transition-colors">Agency Beta Pricing</a></li>
+            <li><a href="https://YOUR-STREAMLIT-APP-URL.streamlit.app" target="_blank" rel="noopener noreferrer" data-config-link="STREAMLIT_DEMO_URL" class="hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5">Live Streamlit Demo <svg class="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></li>
+            <li><a href="/about" class="hover:text-emerald-400 transition-colors">About the Architect</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 font-mono">Connect</h3>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="/contact" class="hover:text-emerald-400 transition-colors">Book Custom Setup</a></li>
+            <li><a href="mailto:hello@rotrixo.com" data-config-link="EMAIL" class="hover:text-emerald-400 transition-colors">Direct: hello@rotrixo.com</a></li>
+            <li><a href="https://www.upwork.com/YOUR-PROFILE-OR-CONTRACT-LINK" target="_blank" rel="noopener noreferrer" data-config-link="UPWORK_URL" class="hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5">Upwork Escrow Direct <svg class="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 font-mono">Governance</h3>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="/terms" class="hover:text-emerald-400 transition-colors">Terms &amp; Conditions</a></li>
+            <li><a href="/privacy" class="hover:text-emerald-400 transition-colors">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml" target="_blank" class="hover:text-emerald-400 transition-colors">XML Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© <span class="current-year">2026</span> Rotrixo. All rights reserved.</p>
+        <div class="flex items-center gap-3">
+          <span>Architected by <span class="text-slate-300 font-medium">Rushikesh Rautrao</span></span>
+          <span class="text-slate-700">•</span>
+          <span>Secure Static Host: Netlify</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/assets/js/config.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
+

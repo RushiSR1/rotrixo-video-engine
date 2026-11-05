@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="fav-grad" x1="6" y1="8" x2="58" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#A855F7" />
+      <stop offset="100%" stop-color="#10F5A0" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#05060A" />
+  <circle cx="32" cy="32" r="26" stroke="url(#fav-grad)" stroke-width="2.5" stroke-dasharray="110 30" transform="rotate(-30 32 32)" />
+  <circle cx="51" cy="18" r="2.5" fill="#10F5A0" />
+  <!-- Monogram R -->
+  <rect x="20" y="18" width="7" height="28" rx="3.5" fill="url(#fav-grad)" />
+  <path d="M 23 18 H 36 C 44 18 49 23 49 29 C 49 35 44 40 36 40 H 26" stroke="url(#fav-grad)" stroke-width="6.5" stroke-linecap="round" fill="none" />
+  <path d="M 34 38 L 45 46" stroke="url(#fav-grad)" stroke-width="6.5" stroke-linecap="round" fill="none" />
+  <circle cx="33" cy="29" r="2" fill="#10F5A0" />
+</svg>
