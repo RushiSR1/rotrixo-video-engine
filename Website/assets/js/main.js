@@ -34,6 +34,11 @@ function initDynamicConfig() {
     const key = el.getAttribute('data-config-link');
     if (key === 'EMAIL') {
       el.href = `mailto:${config.EMAIL}`;
+    } else if (key === 'UPWORK_URL') {
+      // Safeguard: Never overwrite with old placeholder URL
+      if (config.UPWORK_URL && !config.UPWORK_URL.includes('YOUR-PROFILE-OR-CONTRACT-LINK')) {
+        el.href = config.UPWORK_URL;
+      }
     } else if (config[key]) {
       el.href = config[key];
     }
