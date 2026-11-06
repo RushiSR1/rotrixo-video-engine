@@ -4,7 +4,7 @@
  */
 const ROTRIXO_CONFIG = {
   // Live demo Streamlit link
-  STREAMLIT_DEMO_URL: 'https://rotrixo-video-engine-xjgwr2mdyyvcroahgmmcoi.streamlit.app/',
+  STREAMLIT_DEMO_URL: 'https://rotrixo-video-engine-v21py.streamlit.app/',
 
   // Upwork Direct Contract or Profile URL for escrow checkout
   UPWORK_URL: 'https://www.upwork.com/YOUR-PROFILE-OR-CONTRACT-LINK',
