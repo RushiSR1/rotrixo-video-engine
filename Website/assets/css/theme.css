@@ -29,7 +29,21 @@
   --font-mono: 'JetBrains Mono', monospace;
 }
 
-/* Base Reset & Typography */
+/* Base Reset & Typography - Strict Mobile Overflow Prevention */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+  position: relative;
+  -webkit-text-size-adjust: 100%;
+}
+
 html {
   scroll-behavior: smooth;
   background-color: var(--bg-primary);
@@ -38,12 +52,16 @@ html {
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+main {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  position: relative;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -99,27 +117,29 @@ code, pre, .font-mono {
   background-size: 56px 56px;
 }
 
-/* Ambient Radial Glows */
+/* Ambient Radial Glows - Mobile Safe */
 .ambient-glow-purple {
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: min(500px, 85vw);
+  height: min(500px, 85vw);
   border-radius: 50%;
   background: radial-gradient(circle, rgba(139, 92, 246, 0.18) 0%, rgba(139, 92, 246, 0) 70%);
   filter: blur(60px);
   pointer-events: none;
   z-index: 0;
+  max-width: 100%;
 }
 
 .ambient-glow-emerald {
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: min(500px, 85vw);
+  height: min(500px, 85vw);
   border-radius: 50%;
   background: radial-gradient(circle, rgba(16, 245, 160, 0.14) 0%, rgba(16, 245, 160, 0) 70%);
   filter: blur(60px);
   pointer-events: none;
   z-index: 0;
+  max-width: 100%;
 }
 
 /* Floating animation for glowing orbs */

@@ -85,16 +85,17 @@ window.toggleRotrixoMobileMenu = function() {
 
   if (!mobileMenu) return;
 
-  const isClosed = mobileMenu.classList.contains('hidden') || mobileMenu.style.display === 'none' || !mobileMenu.style.display;
+  const isHidden = mobileMenu.classList.contains('hidden') || 
+                   mobileMenu.style.display === 'none' || 
+                   (window.getComputedStyle && window.getComputedStyle(mobileMenu).display === 'none');
   
-  if (isClosed && mobileMenu.classList.contains('hidden')) {
+  if (isHidden) {
     // Open
     mobileMenu.classList.remove('hidden');
     mobileMenu.style.display = 'block';
     if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
     if (menuIcon) menuIcon.classList.add('hidden');
     if (closeIcon) closeIcon.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
   } else {
     // Close
     mobileMenu.classList.add('hidden');
@@ -102,7 +103,6 @@ window.toggleRotrixoMobileMenu = function() {
     if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
     if (menuIcon) menuIcon.classList.remove('hidden');
     if (closeIcon) closeIcon.classList.add('hidden');
-    document.body.style.overflow = '';
   }
 };
 

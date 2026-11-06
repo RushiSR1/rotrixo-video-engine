@@ -51,11 +51,11 @@
   <!-- Header -->
   <a href="#main-content" class="skip-to-content">Skip to content</a>
 
-  <header id="main-navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#05060A]/80 backdrop-blur-md border-b border-white/5">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
-        <a href="/" class="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-purple-500 rounded-lg p-1 group">
-          <img src="/assets/img/logo.svg" alt="Rotrixo Logo" class="h-10 w-auto transition-transform duration-200 group-hover:scale-[1.02]" width="175" height="40">
+  <header id="main-navbar" class="fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 bg-[#05060A]/90 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="flex items-center justify-between h-16 sm:h-20 w-full">
+        <a href="/" class="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-purple-500 rounded-lg p-1 group flex-shrink-0">
+          <img src="/assets/img/logo.svg" alt="Rotrixo Logo" class="h-8 sm:h-10 w-auto transition-transform duration-200 group-hover:scale-[1.02]" width="140" height="32">
         </a>
         <nav class="hidden md:flex items-center gap-1 lg:gap-2" aria-label="Main Navigation">
           <a href="/" class="nav-link">Home</a>
@@ -87,8 +87,8 @@
             </svg>
           </a>
         </div>
-        <div class="flex md:hidden items-center">
-          <button id="mobile-menu-toggle" type="button" onclick="toggleRotrixoMobileMenu()" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-white bg-white/10 hover:bg-white/15 border border-white/20 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors shadow-lg active:scale-95" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation menu">
+        <div class="flex md:hidden items-center flex-shrink-0">
+          <button id="mobile-menu-toggle" type="button" onclick="toggleRotrixoMobileMenu()" class="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-white bg-white/10 hover:bg-white/15 border border-white/20 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors shadow-lg active:scale-95" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation menu">
             <svg id="menu-icon" class="w-5 h-5 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -131,8 +131,10 @@
   </header>
 
   <!-- Main Content -->
-  <main id="main-content" class="flex-grow flex items-center justify-center py-32 px-4 relative z-10">
-    <div class="ambient-glow-purple top-20 left-1/2 -translate-x-1/2"></div>
+  <main id="main-content" class="flex-grow flex items-center justify-center py-32 px-4 relative z-10 w-full max-w-full">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none -z-10 w-full max-w-full">
+      <div class="ambient-glow-purple top-20 left-1/2 -translate-x-1/2"></div>
+    </div>
     
     <div class="glass-card max-w-xl w-full p-8 sm:p-12 text-center space-y-6 relative border border-white/10 shadow-2xl">
       
