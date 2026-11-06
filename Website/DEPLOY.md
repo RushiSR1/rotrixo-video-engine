@@ -121,7 +121,7 @@ Before public launch, open `/assets/js/config.js` and customize these variables:
 | Variable | Current Placeholder | Description |
 | :--- | :--- | :--- |
 | `STREAMLIT_DEMO_URL` | `'https://rotrixo-video-engine-v21py.streamlit.app/'` | The live URL of your deployed Streamlit video generator demo app. |
-| `UPWORK_URL` | `'https://www.upwork.com/YOUR-PROFILE-OR-CONTRACT-LINK'` | Your Upwork Direct Contract or Profile checkout link. |
+| `UPWORK_URL` | `'mailto:hello@rotrixo.com?subject=...'` | Pre-formatted email initiator for Upwork Direct Contract escrow generation. |
 | `EMAIL` | `'hello@rotrixo.com'` | Your business contact email. |
 | `SITE_URL` | `'https://rotrixo.com'` | Canonical production domain. |
 | `SOCIAL` | Twitter, LinkedIn, GitHub URLs | Your social profiles (optional). |

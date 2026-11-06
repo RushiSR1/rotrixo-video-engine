@@ -57,7 +57,7 @@ Edit [`assets/js/config.js`](file:///assets/js/config.js) to update links across
 | Key | Current Value | Action Required |
 | :--- | :--- | :--- |
 | `STREAMLIT_DEMO_URL` | `'https://rotrixo-video-engine-v21py.streamlit.app/'` | Replace with your actual live Streamlit demo URL. |
-| `UPWORK_URL` | `'https://www.upwork.com/YOUR-PROFILE-OR-CONTRACT-LINK'` | Replace with your Upwork Profile or Direct Contract link. |
+| `UPWORK_URL` | `'mailto:hello@rotrixo.com?subject=...'` | Pre-formatted email initiator for Upwork Direct Contract escrow generation. |
 | `EMAIL` | `'hello@rotrixo.com'` | Replace with your preferred contact email if different. |
 | `SITE_URL` | `'https://rotrixo.com'` | Canonical domain name. |
 | `SOCIAL` | Twitter, LinkedIn, GitHub URLs | Update with your social handles. |
