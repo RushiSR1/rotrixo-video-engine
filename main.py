@@ -95,8 +95,15 @@ def generate_video(
         print("[Error] Failed to generate voiceover cues.")
         return None
 
-    total_voice_duration = cues[-1]["end"]
-    print(f"[VOICE] VOICEOVER COMPLETED: Duration = {total_voice_duration:.2f} seconds")
+    # Measure exact audio file duration with composer to prevent video/audio desync
+    composer = VideoComposer()
+    actual_audio_dur = composer._get_audio_duration(voice_file)
+    if cues and actual_audio_dur > cues[-1]["end"]:
+        # Ensure final subtitles and visuals stretch smoothly until audio track concludes
+        cues[-1]["end"] = max(cues[-1]["end"], actual_audio_dur)
+    
+    total_voice_duration = max(cues[-1]["end"] if cues else 0.0, actual_audio_dur)
+    print(f"[VOICE] VOICEOVER COMPLETED: Duration = {total_voice_duration:.2f} seconds (Audio file: {actual_audio_dur:.2f}s)")
 
     # 3. Fetch Diverse, Topic-Specific B-Roll Clips for Each Scene (Zero Footage Repetition)
     video_fetcher = VideoFetcher()

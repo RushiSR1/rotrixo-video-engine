@@ -5,6 +5,7 @@
 # Build & temporary files
 temp/
 output/
+engine output/
 __pycache__/
 *.py[cod]
 *$py.class

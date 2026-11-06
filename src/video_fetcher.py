@@ -361,7 +361,9 @@ class VideoFetcher:
             f"fps={config.VIDEO_FPS}"
         )
         cmd = [
-            config.FFMPEG_PATH, "-y", "-i", str(input_video),
+            config.FFMPEG_PATH, "-y",
+            "-stream_loop", "-1",
+            "-i", str(input_video),
             "-t", str(duration + 0.5),
             "-vf", filter_str, "-an",
             "-c:v", "libx264", "-preset", "fast", "-pix_fmt", "yuv420p",

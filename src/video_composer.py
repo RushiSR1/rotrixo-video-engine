@@ -44,12 +44,26 @@ class VideoComposer:
         voice_duration = self._get_audio_duration(voice_path)
         target_video_duration = voice_duration + 0.5
 
-        # 1. Concat Demuxer
+        # 1. Concat Demuxer with loop safety
+        total_clips_dur = 0.0
+        for clip in scene_clips:
+            try:
+                total_clips_dur += self._get_audio_duration(clip)
+            except Exception:
+                pass
+
         concat_txt = self.temp_dir / f"concat_{int(abs(hash(str(output_path)))%100000)}.txt"
         with open(concat_txt, "w", encoding="utf-8") as f:
             for clip in scene_clips:
                 safe_clip_path = str(clip.resolve()).replace("\\", "/")
                 f.write(f"file '{safe_clip_path}'\n")
+            # If total footage is less than target video duration, duplicate clips so video never runs out
+            if 0 < total_clips_dur < target_video_duration:
+                repeats = int(target_video_duration // total_clips_dur) + 1
+                for _ in range(repeats):
+                    for clip in scene_clips:
+                        safe_clip_path = str(clip.resolve()).replace("\\", "/")
+                        f.write(f"file '{safe_clip_path}'\n")
 
         # 2. Subtitle Filter Path (escape backslashes and colons for ffmpeg)
         escaped_sub_path = str(subtitle_path.resolve()).replace("\\", "/").replace(":", r"\:")
@@ -60,7 +74,8 @@ class VideoComposer:
 
         cmd_inputs = [
             self.ffmpeg_path, "-y",
-            "-f", "concat", "-safe", "0", "-i", str(concat_txt), # [0] Video
+            "-stream_loop", "-1",
+            "-f", "concat", "-safe", "0", "-i", str(concat_txt), # [0] Video (seamless loop safety)
             "-i", str(voice_path),                                # [1] Voice
             "-i", str(bgm_path),                                  # [2] BGM
         ]
@@ -136,6 +151,7 @@ class VideoComposer:
             )
             alt_cmd = [
                 self.ffmpeg_path, "-y",
+                "-stream_loop", "-1",
                 "-f", "concat", "-safe", "0", "-i", str(concat_txt),
                 "-i", str(voice_path), "-i", str(bgm_path),
                 "-filter_complex", alt_filter,
