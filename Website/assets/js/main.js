@@ -4,7 +4,7 @@
  * FAQ accordion, Netlify forms, and dynamic configuration bindings.
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+function initAll() {
   initDynamicConfig();
   initNavbar();
   initMobileMenu();
@@ -14,7 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initContactForm();
   initFooterYear();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAll);
+} else {
+  initAll();
+}
 
 /**
  * 1. Dynamic Config Links & Texts
@@ -71,38 +77,54 @@ function initNavbar() {
 /**
  * 3. Mobile Navigation Drawer
  */
+window.toggleRotrixoMobileMenu = function() {
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  if (!mobileMenu) return;
+
+  const isClosed = mobileMenu.classList.contains('hidden') || mobileMenu.style.display === 'none' || !mobileMenu.style.display;
+  
+  if (isClosed && mobileMenu.classList.contains('hidden')) {
+    // Open
+    mobileMenu.classList.remove('hidden');
+    mobileMenu.style.display = 'block';
+    if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
+    if (menuIcon) menuIcon.classList.add('hidden');
+    if (closeIcon) closeIcon.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  } else {
+    // Close
+    mobileMenu.classList.add('hidden');
+    mobileMenu.style.display = 'none';
+    if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+    if (menuIcon) menuIcon.classList.remove('hidden');
+    if (closeIcon) closeIcon.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+};
+
 function initMobileMenu() {
   const toggleBtn = document.getElementById('mobile-menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
   const menuIcon = document.getElementById('menu-icon');
   const closeIcon = document.getElementById('close-icon');
 
-  if (!toggleBtn || !mobileMenu) return;
+  if (!mobileMenu) return;
 
-  const toggle = () => {
-    const isOpen = !mobileMenu.classList.contains('hidden');
-    if (isOpen) {
-      mobileMenu.classList.add('hidden');
-      toggleBtn.setAttribute('aria-expanded', 'false');
-      if (menuIcon) menuIcon.classList.remove('hidden');
-      if (closeIcon) closeIcon.classList.add('hidden');
-      document.body.style.overflow = '';
-    } else {
-      mobileMenu.classList.remove('hidden');
-      toggleBtn.setAttribute('aria-expanded', 'true');
-      if (menuIcon) menuIcon.classList.add('hidden');
-      if (closeIcon) closeIcon.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-  };
-
-  toggleBtn.addEventListener('click', toggle);
+  if (toggleBtn) {
+    toggleBtn.removeEventListener('click', window.toggleRotrixoMobileMenu);
+    toggleBtn.addEventListener('click', window.toggleRotrixoMobileMenu);
+  }
 
   // Close when clicking mobile links
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.classList.add('hidden');
-      toggleBtn.setAttribute('aria-expanded', 'false');
+      mobileMenu.style.display = 'none';
+      if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
       if (menuIcon) menuIcon.classList.remove('hidden');
       if (closeIcon) closeIcon.classList.add('hidden');
       document.body.style.overflow = '';
@@ -112,7 +134,7 @@ function initMobileMenu() {
   // Close on Escape
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
-      toggle();
+      window.toggleRotrixoMobileMenu();
     }
   });
 }
@@ -123,6 +145,7 @@ function initMobileMenu() {
 function initActiveNavLink() {
   const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
   const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+  const bottomLinks = document.querySelectorAll('.mobile-bottom-link');
 
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
@@ -137,6 +160,20 @@ function initActiveNavLink() {
       link.classList.add('active');
     } else {
       link.classList.remove('active');
+    }
+  });
+
+  bottomLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href) return;
+    const cleanHref = href.replace(/\/$/, '').replace(/\.html$/, '') || '/';
+
+    if (
+      (currentPath === '/' && (cleanHref === '/' || cleanHref === '/index')) ||
+      (currentPath !== '/' && (currentPath === cleanHref || currentPath === `${cleanHref}.html`))
+    ) {
+      link.classList.add('text-emerald-400');
+      link.classList.remove('text-slate-400');
     }
   });
 }

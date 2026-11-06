@@ -80,25 +80,43 @@
           </a>
         </div>
         <div class="flex md:hidden items-center">
-          <button id="mobile-menu-toggle" type="button" class="inline-flex items-center justify-center p-3 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation menu">
-            <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button id="mobile-menu-toggle" type="button" onclick="toggleRotrixoMobileMenu()" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-white bg-white/10 hover:bg-white/15 border border-white/20 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors shadow-lg active:scale-95" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation menu">
+            <svg id="menu-icon" class="w-5 h-5 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
-            <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg id="close-icon" class="w-5 h-5 hidden text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
+            <span class="text-xs font-mono font-bold tracking-wider uppercase text-white">Menu</span>
           </button>
         </div>
       </div>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden border-b border-white/10 bg-[#070912]/95 backdrop-blur-2xl">
+    <div id="mobile-menu" class="hidden md:hidden border-b border-white/10 bg-[#070912]/98 backdrop-blur-2xl shadow-2xl">
       <div class="px-4 pt-3 pb-6 space-y-2">
-        <a href="/" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5">Home</a>
-        <a href="/about" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5">About</a>
-        <a href="/pricing" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5">Pricing</a>
-        <a href="/contact" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5">Contact</a>
-        <div class="pt-4 px-2">
-          <a href="/pricing" class="glow-btn-primary w-full text-center py-3 text-base justify-center">Get Custom Setup ($199)</a>
+        <a href="/" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-colors">
+          <span>🏠 Home</span>
+          <span class="text-xs font-mono text-slate-500">&rarr;</span>
+        </a>
+        <a href="/about" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-colors">
+          <span>👤 About Architect</span>
+          <span class="text-xs font-mono text-slate-500">&rarr;</span>
+        </a>
+        <a href="/pricing" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-colors">
+          <span>💎 Pricing ($199 Beta Deal)</span>
+          <span class="text-xs font-mono text-emerald-400 font-bold">Save $400</span>
+        </a>
+        <a href="/contact" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-colors">
+          <span>✉️ Contact Rushikesh</span>
+          <span class="text-xs font-mono text-slate-500">&rarr;</span>
+        </a>
+        <div class="pt-3 px-1 space-y-2">
+          <a href="https://rotrixo-video-engine-xjgwr2mdyyvcroahgmmcoi.streamlit.app/" target="_blank" rel="noopener noreferrer" data-config-link="STREAMLIT_DEMO_URL" class="glow-btn-secondary w-full text-center py-3 text-sm justify-center">
+            ⚡ Test Live Streamlit Demo
+          </a>
+          <a href="/pricing" class="glow-btn-primary w-full text-center py-3 text-sm justify-center">
+            🚀 Claim Beta Setup ($199)
+          </a>
         </div>
       </div>
     </div>
@@ -227,7 +245,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-white/10 bg-[#05060A] text-slate-400 mt-auto relative z-10">
+  <footer class="border-t border-white/10 bg-[#05060A] text-slate-400 mt-auto relative z-10 pb-20 md:pb-0">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-12">
         <div class="lg:col-span-2 space-y-4">
@@ -278,6 +296,30 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobile Floating Bottom Quick-Nav Bar (Visible only on screens < md) -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#070912]/95 backdrop-blur-xl border-t border-white/10 px-2 py-2 flex items-center justify-around text-center shadow-2xl" aria-label="Mobile Bottom Navigation">
+    <a href="/" class="flex flex-col items-center py-1 px-2 text-slate-400 hover:text-white mobile-bottom-link">
+      <span class="text-base">🏠</span>
+      <span class="text-[10px] font-mono tracking-tight mt-0.5">Home</span>
+    </a>
+    <a href="/about" class="flex flex-col items-center py-1 px-2 text-slate-400 hover:text-white mobile-bottom-link">
+      <span class="text-base">👤</span>
+      <span class="text-[10px] font-mono tracking-tight mt-0.5">About</span>
+    </a>
+    <a href="/pricing" class="flex flex-col items-center py-1 px-2 text-slate-400 hover:text-white mobile-bottom-link">
+      <span class="text-base">💎</span>
+      <span class="text-[10px] font-mono tracking-tight mt-0.5">Pricing</span>
+    </a>
+    <a href="/contact" class="flex flex-col items-center py-1 px-2 text-slate-400 hover:text-white mobile-bottom-link">
+      <span class="text-base">✉️</span>
+      <span class="text-[10px] font-mono tracking-tight mt-0.5">Contact</span>
+    </a>
+    <a href="https://rotrixo-video-engine-xjgwr2mdyyvcroahgmmcoi.streamlit.app/" target="_blank" rel="noopener noreferrer" data-config-link="STREAMLIT_DEMO_URL" class="flex flex-col items-center py-1 px-2 text-emerald-400 hover:text-emerald-300 mobile-bottom-link">
+      <span class="text-base">⚡</span>
+      <span class="text-[10px] font-mono font-bold tracking-tight mt-0.5">Demo</span>
+    </a>
+  </nav>
 
   <!-- Scripts -->
   <script src="/assets/js/config.js"></script>
